@@ -282,7 +282,6 @@ class Array(ModelField):
 
     def get_validator(self, **kwargs):
         return typesystem.Array(
-            items=self.base_field.get_validator(),
             **kwargs
         )
 
