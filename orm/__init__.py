@@ -19,6 +19,7 @@ from orm.fields import (
     String,
     Text,
     Time,
+    Array,
 )
 from orm.models import Model, ModelRegistry
 
@@ -47,6 +48,7 @@ __all__ = [
     "Time",
     "URL",
     "UUID",
+    "Array",
     "Model",
     "ModelRegistry",
 ]
