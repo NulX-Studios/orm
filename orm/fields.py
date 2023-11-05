@@ -274,3 +274,17 @@ class URL(String):
 
     def get_column_type(self):
         return sqlalchemy.String(length=self.validator.max_length)
+
+class Array(orm.ModelField):
+    def __init__(self, base_field, **kwargs):
+        super().__init__(**kwargs)
+        self.base_field = base_field
+
+    def get_validator(self, **kwargs):
+        return typesystem.Array(
+            items=self.base_field.get_validator(),
+            **kwargs
+        )
+
+    def get_column_type(self):
+        return sqlalchemy.ARRAY(self.base_field.get_column_type())
